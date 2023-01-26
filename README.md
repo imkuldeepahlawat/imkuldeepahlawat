@@ -1,9 +1,7 @@
 <h1 align="center">Hi 👋, I'm Kuldeep Ahlawat</h1>
 <h3 align="center">A passionate Developer from India</h3>
 
-<p align="left"> <img src="https://komarev.com/ghpvc/?username=imkuldeepahlawat&label=Profile%20views&color=0e75b6&style=flat" alt="imkuldeepahlawat" /> </p>
-
-- 👨‍💻 All of my projects are available at [imkuldeepahlawat.com](imkuldeepahlawat.com)
+- 👨‍💻 All of my projects are available at [hello.com](hello.com)
 
 - 💬 Ask me about **Tailwind,CSS,C++,Java,JavaScript,OOPs,DSA**
 
@@ -26,6 +24,4 @@
 
 <h3 align="left">Support:</h3>
 <p><a href="https://ko-fi.com/imkuldeepahlawat"> <img align="left" src="https://cdn.ko-fi.com/cdn/kofi3.png?v=3" height="50" width="210" alt="imkuldeepahlawat" /></a></p><br><br>
-
-<p><img align="center" src="https://github-readme-stats.vercel.app/api/top-langs?username=imkuldeepahlawat&show_icons=true&locale=en&layout=compact" alt="imkuldeepahlawat" /></p>
 
