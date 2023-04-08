@@ -1,7 +1,7 @@
 <h1 align="center">Hi 👋, I'm Kuldeep Ahlawat</h1>
 <h3 align="center">A passionate Developer from India</h3>
 
-- 👨‍💻 All of my projects are available at [hello.com](hello.com)
+- 👨‍💻 All of my projects are available at [Kuldeep](shorturl.at/tBCER)
 
 - 💬 Ask me about **Tailwind,CSS,C++,Java,JavaScript,OOPs,DSA**
 
