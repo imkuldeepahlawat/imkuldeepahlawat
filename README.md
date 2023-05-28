@@ -5,6 +5,8 @@
 
 <p align="left"> <a href="https://twitter.com/ikuldeepahlawat" target="blank"><img src="https://img.shields.io/twitter/follow/ikuldeepahlawat?logo=twitter&style=for-the-badge" alt="ikuldeepahlawat" /></a> </p>
 
+- 🌱 I’m currently learning **MERN STACK**
+
 - 👨‍💻 All of my projects are available at [hello.com](hello.com)
 
 - 💬 Ask me about **Tailwind,CSS,C++,Java,JavaScript,OOPs,DSA**
