@@ -7,7 +7,7 @@
 
 - 🌱 I’m currently learning **MERN STACK**
 
-- 👨‍💻 All of my projects are available at [hello.com](https://www.crio.do/learn/portfolio/imkuldeepahlawat/?edit=true)
+- 👨‍💻 All of my projects are available [Here](https://www.crio.do/learn/portfolio/imkuldeepahlawat/?edit=true)
 
 - 💬 Ask me about **Tailwind,CSS,C++,Java,JavaScript,OOPs,DSA**
 
