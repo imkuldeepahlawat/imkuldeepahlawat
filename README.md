@@ -3,8 +3,6 @@
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=imkuldeepahlawat&label=Profile%20views&color=0e75b6&style=flat" alt="imkuldeepahlawat" /> </p>
 
-<p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=imkuldeepahlawat" alt="imkuldeepahlawat" /></a> </p>
-
 <p align="left"> <a href="https://twitter.com/ikuldeepahlawat" target="blank"><img src="https://img.shields.io/twitter/follow/ikuldeepahlawat?logo=twitter&style=for-the-badge" alt="ikuldeepahlawat" /></a> </p>
 
 - 🌱 I’m currently learning **MERN STACK**
@@ -14,6 +12,8 @@
 - 💬 Ask me about **Tailwind,CSS,C++,Java,JavaScript,OOPs,DSA**
 
 - 📫 How to reach me **contact.kuldeepahlawat@gmail.com**
+
+- 📄 Know about my experiences [https://drive.google.com/file/d/1OpvL7DgYPzTcvtwUVu9-9owsOH8tPxT7/view?usp=drive_link](https://drive.google.com/file/d/1OpvL7DgYPzTcvtwUVu9-9owsOH8tPxT7/view?usp=drive_link)
 
 - ⚡ Fun fact **I Can See The Beauty of Chaos in Code**
 
@@ -34,9 +34,7 @@
 <h3 align="left">Support:</h3>
 <p><a href="https://ko-fi.com/imkuldeepahlawat"> <img align="left" src="https://cdn.ko-fi.com/cdn/kofi3.png?v=3" height="50" width="210" alt="imkuldeepahlawat" /></a></p><br><br>
 
-<p><img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=imkuldeepahlawat&show_icons=true&locale=en&layout=compact" alt="imkuldeepahlawat" /></p>
-
-<p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=imkuldeepahlawat&show_icons=true&locale=en" alt="imkuldeepahlawat" /></p>
+<p><img align="center" src="https://github-readme-stats.vercel.app/api/top-langs?username=imkuldeepahlawat&show_icons=true&locale=en&layout=compact" alt="imkuldeepahlawat" /></p>
 
 <p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=imkuldeepahlawat&" alt="imkuldeepahlawat" /></p>
 
