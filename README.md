@@ -15,7 +15,7 @@
 
 - 📄 Know about my experiences [Here](https://drive.google.com/file/d/1OpvL7DgYPzTcvtwUVu9-9owsOH8tPxT7/view?usp=drive_link)
 
-- ⚡ Fun fact **I Can See The Beauty of Chaos in Code**
+- ⚡ Fun fact **I Want To Hack Nasa With HTML**
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
