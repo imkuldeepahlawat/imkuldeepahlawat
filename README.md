@@ -7,13 +7,13 @@
 
 - 🌱 I’m currently learning **MERN Stack**
 
-- 👨‍💻 All of my projects are available at [https://www.crio.do/learn/portfolio/imkuldeepahlawat/?edit=true](https://www.crio.do/learn/portfolio/imkuldeepahlawat/?edit=true)
+- 👨‍💻 All of my projects are available at [Here](https://www.crio.do/learn/portfolio/imkuldeepahlawat/?edit=true)
 
 - 💬 Ask me about **React, C++, JavaScript, DSA, OOPs**
 
 - 📫 How to reach me **contact.kuldeepahlawat@gmail.com**
 
-- 📄 Know about my experiences [https://drive.google.com/file/d/1OpvL7DgYPzTcvtwUVu9-9owsOH8tPxT7/view](https://drive.google.com/file/d/1OpvL7DgYPzTcvtwUVu9-9owsOH8tPxT7/view)
+- 📄 Know about my experiences [Here](https://drive.google.com/file/d/1OpvL7DgYPzTcvtwUVu9-9owsOH8tPxT7/view?usp=drive_link)
 
 - ⚡ Fun fact **I Want To Hack Nasa With HTML**
 
