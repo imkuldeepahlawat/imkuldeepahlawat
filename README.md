@@ -68,8 +68,8 @@
 ### ✍️ Random Dev Quote
 ![](https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical)
 
-## Can You  Save My Contributions From Snake
-![](https://github.com/imkuldeepahlawat/imkuldeepahlawat/blob/output/github-contribution-grid-snake.svg)
+<!-- ## Can You  Save My Contributions From Snake
+![](https://github.com/imkuldeepahlawat/imkuldeepahlawat/blob/output/github-contribution-grid-snake.svg) -->
 
 ## 📧 Connect with me:
 
