@@ -8,7 +8,7 @@
 - 🥋 I'm very Passionate For Programming and Developement .I'm always ready to learn new things with Effective ideas.
 - 🔭 I’m currently working on [Qtify Project](https://qtify-kuldeepahlawat.netlify.app/)
 
-- 🌱 I’m currently learning **MERN Stack**
+- 🌱 I’m currently learning **System Design**
 
 - 👨‍💻 All of my projects are available at [Here](https://www.crio.do/learn/portfolio/imkuldeepahlawat/?edit=true)
 - 💬 Ask me about **React, C++, JavaScript, DSA, OOPs**
