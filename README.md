@@ -6,6 +6,7 @@
 ## 🙋‍♂️ About Me
 
 - 🥋 I'm very Passionate For Programming and Developement .I'm always ready to learn new things with Effective ideas.
+- 💼 Software Developer @ [Inkers.ai](https://www.inkers.ai/)
 - 🔭 I’m currently working on [Cred Card Management App](https://cred-card-management-system.vercel.app/) and [Change Ahead](https://www.changeahead.org.uk/)
 
 - 🌱 I’m currently learning **System Design**
