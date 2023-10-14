@@ -11,7 +11,7 @@
 
 - 🌱 I’m currently learning **System Design**
 
-- 👨‍💻 All of my projects are available at [Here](https://www.crio.do/learn/portfolio/imkuldeepahlawat/?edit=true)
+- 👨‍💻 All of my projects are available at [Here](https://kuldeep-ahlawat.vercel.app/)
 - 💬 Ask me about **React, C++, JavaScript, DSA, OOPs**
 
 - 📫 How to reach me **contact.kuldeepahlawat@gmail.com**
@@ -49,8 +49,8 @@
 ## 📊 My Github Stats
 
    <br/>
-<a href="https://github.com/imkuldeepahlawat/github-readme-stats"><img alt="Kuldeep Singh Github Stats" src="https://github-readme-stats.vercel.app/api?username=imkuldeepahlawat&show_icons=true&count_private=true&theme=react&hide_border=true&bg_color=0D1117" /></a>
-  <a href="https://github.com/imkuldeepahlawat/github-readme-stats"><img alt="Kuldeep Singh Top Languages" src="https://github-readme-stats.vercel.app/api/top-langs/?username=imkuldeepahlawat&langs_count=8&count_private=true&layout=compact&theme=react&hide_border=true&bg_color=0D1117" /></a>
+<a href="https://github.com/imkuldeepahlawat/github-readme-stats"><img alt="Kuldeep Ahlawat Github Stats" src="https://github-readme-stats.vercel.app/api?username=imkuldeepahlawat&show_icons=true&count_private=true&theme=react&hide_border=true&bg_color=0D1117" /></a>
+  <a href="https://github.com/imkuldeepahlawat/github-readme-stats"><img alt="Kuldeep Ahlawat Top Languages" src="https://github-readme-stats.vercel.app/api/top-langs/?username=imkuldeepahlawat&langs_count=8&count_private=true&layout=compact&theme=react&hide_border=true&bg_color=0D1117" /></a>
   <br/>
   <b>Note:</b> Top languages is only a metric of the languages my public code consists of and doesn't reflect experience or skill level.
 
@@ -68,7 +68,7 @@
 
 ## 📧 Connect with me:
 
-<p align="right">
+<p align="left">
 
 <a href = "https://www.linkedin.com/in/imkuldeepahlawat/" target="_blank"><img src="https://raw.githubusercontent.com/maurodesouza/profile-readme-generator/master/src/assets/icons/social/linkedin/default.svg" width="52" height="40" alt="linkedin logo"  /></a>
 <a href = "#"><img src="https://img.icons8.com/fluent/48/000000/twitter.png"/></a>
