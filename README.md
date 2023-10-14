@@ -46,12 +46,6 @@
 🌐 QKart [**🔗**](https://qkartfrontendkuldeepahlawat.netlify.app/) 🌐 Xboard [**🔗**](https://newsfeedkuldeepahlawat.netlify.app/)🌐 QtripDynamic [**🔗**](https://kuldeepahlawat-qtripdynamic.netlify.app/) <br>
 🌐 QTripStatic [**🔗**](https://imkuldeepahlawat-qtrip.netlify.app/) 
 🌐 QTify [**🔗**](https://qtify-kuldeepahlawat.netlify.app//) 
-
-<p align="center">
-    <a href="https://https://github.com/imkuldeepahlawat/github-readme-streak-stats">
-        <img title="🔥 Get streak stats for your profile at git.io/streak-stats" alt="Kuldeep Singh streak" src="https://github-readme-streak-stats.herokuapp.com/?user=imkuldeepahlawat&theme=black-ice&hide_border=true&stroke=0000&background=060A0CD0"/>
-    </a>
-</p>
 ## 📊 My Github Stats
 
    <br/>
@@ -74,7 +68,7 @@
 
 ## 📧 Connect with me:
 
-<p align="left">
+<p align="right">
 
 <a href = "https://www.linkedin.com/in/imkuldeepahlawat/" target="_blank"><img src="https://raw.githubusercontent.com/maurodesouza/profile-readme-generator/master/src/assets/icons/social/linkedin/default.svg" width="52" height="40" alt="linkedin logo"  /></a>
 <a href = "#"><img src="https://img.icons8.com/fluent/48/000000/twitter.png"/></a>
