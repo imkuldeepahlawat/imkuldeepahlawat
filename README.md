@@ -83,6 +83,7 @@
 </a>
 <a href="https://github.com/imkuldeepahlawat?tab=followers"><img src="https://img.shields.io/github/followers/imkuldeepahlawat?label=Followers&style=social" alt="GitHub Badge"></a>
 
-
+<img src="https://raw.githubusercontent.com/imkuldeepahlawat/imkuldeepahlawat/output/snake.svg" alt="Snake animation" />
 
 ###
+
