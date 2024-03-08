@@ -6,7 +6,7 @@
 ## 🙋‍♂️ About Me
 
 - 🥋 I'm very Passionate For Programming and Developement .I'm always ready to learn new things with Effective ideas.
-- 💼 SDE Intern @ [Inkers.ai](https://www.inkers.ai/)
+- 💼 SDE@ [Inkers.ai](https://www.inkers.ai/)
 - 🔭 I’m currently working on [Cred Card Management App](https://cred-card-management-system.vercel.app/) and [Sure Trust](https://suretrustforruralyouth.com/)
 
 - 🌱 I’m currently learning **System Design**
