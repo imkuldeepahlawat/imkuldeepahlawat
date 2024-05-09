@@ -9,18 +9,18 @@
 - 💼 SDE@ [Inkers.ai](https://www.inkers.ai/)
 - 🔭 I’m currently working on [Cred Card Management App](https://cred-card-management-system.vercel.app/) and [Sure Trust](https://suretrustforruralyouth.com/)
 
-- 🌱 I’m currently learning **System Design**
+- 🌱 I’m currently learning **System Design , AI/ML**
 
 - 👨‍💻 All of my projects are available at [Here](https://kuldeep-ahlawat.vercel.app/)
 - 💬 Ask me about **React, C++, JavaScript, DSA, OOPs**
 
 - 📫 How to reach me **contact.kuldeepahlawat@gmail.com**
 
-- 📄 Know about my experiences [Here](https://drive.google.com/file/d/1OpvL7DgYPzTcvtwUVu9-9owsOH8tPxT7/view?usp=drive_link)
+<!-- - 📄 Know about my experiences [Here](https://drive.google.com/file/d/1OpvL7DgYPzTcvtwUVu9-9owsOH8tPxT7/view?usp=drive_link) -->
 
 - ⚡ Fun fact **I Want To Hack Nasa With HTML**
 - 👯 I’m looking to collaborate on **OpenSource Projects**
-- ⚡ For Fun **HipHop , Code ,Travel**
+- ⚡ For Fun **HipHop , Code , Travel**
 - 🔗 Connect Me on [**Linkedin**](https://www.linkedin.com/in/imkuldeepahlawat/)
 - 🔗 Connect Me on [**Twitter**](https://twitter.com/ikuldeepahlawat)
 
