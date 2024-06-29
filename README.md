@@ -1,5 +1,5 @@
 <h1 align="center">Hi <img src="https://raw.githubusercontent.com/MartinHeinz/MartinHeinz/master/wave.gif" height="40" width="40">, I'm Kuldeep Ahlawat</h1>
-<h3 align="center">A passionate Developer from India</h3>
+<h3 align="center">A Passionate Developer from India</h3>
 
 
 
@@ -11,7 +11,7 @@
 
 - 🌱 I’m currently learning **System Design , AI/ML**
 
-- 👨‍💻 All of my projects are available at [Here](https://kuldeep-ahlawat.vercel.app/)
+- 👨‍💻 All of my projects are available at [Here](https://kuldeepahlawat.in/)
 - 💬 Ask me about **React, C++, JavaScript, DSA, OOPs**
 
 - 📫 How to reach me **contact.kuldeepahlawat@gmail.com**
@@ -25,6 +25,8 @@
 - 🔗 Connect Me on [**Twitter**](https://twitter.com/ikuldeepahlawat)
 
 ## ❤️ DSA ZONE
+<!-- ![](https://leetcard.jacoblin.cool/imkuldeepahlawat?width=500&height=200)-->
+
 
 <p align="left"> 
 <a href="https://www.leetcode.com/imkuldeepahlawat" target="blank">
