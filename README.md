@@ -12,7 +12,7 @@
 - 👨‍💻 All of my projects are available at [Here](https://kuldeepahlawat.in/)
 - 💬 Ask me about **React, C++, JavaScript, DSA, OOPs**
 
-- 📫 How to reach me **contact.kuldeepahlawat@gmail.com**
+- 📫 How to reach me **kuldeepahlawat.dev@gmail.com**
 
 <!-- - 📄 Know about my experiences [Here](https://drive.google.com/file/d/1OpvL7DgYPzTcvtwUVu9-9owsOH8tPxT7/view?usp=drive_link) -->
 
