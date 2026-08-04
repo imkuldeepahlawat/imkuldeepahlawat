@@ -91,7 +91,7 @@ def build_svg(grid, color):
     }}
     .ch {{
       opacity: 0;
-      animation: typeIn 10ms steps(1, end) forwards;
+      animation: typeIn 140ms ease-out forwards;
     }}
     @keyframes typeIn {{
       to {{ opacity: 1; }}

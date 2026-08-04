@@ -76,7 +76,7 @@ def build_svg(lines, color):
 
     css = f"""
     text {{ font-family: {MONOSPACE_STACK}; font-size: {FONT_SIZE}px; font-weight: 700; fill: {color}; }}
-    .ch {{ opacity: 0; animation: flicker {FLICKER_DUR_MS}ms steps(1, end) forwards; }}
+    .ch {{ opacity: 0; animation: flicker {FLICKER_DUR_MS}ms linear forwards; }}
     @keyframes flicker {{
       0%   {{ opacity: 0; }}
       12%  {{ opacity: 1; }}
@@ -88,10 +88,8 @@ def build_svg(lines, color):
     }}
     .cursor {{
       opacity: 0;
-      animation: appear 10ms steps(1, end) {cursor_delay}ms forwards,
-                 blink 1s steps(1, end) {cursor_delay}ms infinite;
+      animation: blink 1s steps(1, end) {cursor_delay}ms infinite;
     }}
-    @keyframes appear {{ to {{ opacity: 1; }} }}
     @keyframes blink {{ 0%, 49% {{ opacity: 1; }} 50%, 100% {{ opacity: 0; }} }}
     """.strip()
 
