@@ -35,14 +35,5 @@
 <img src="https://raw.githubusercontent.com/imkuldeepahlawat/imkuldeepahlawat/output/contrib-heatmap.svg" alt="Contribution Graph" />
 
 <br>
-<br>
-
-<h3><code>kuldeep@github ~ $ ./leetcode.sh</code></h3>
-
-<a href="https://leetcode.com/imkuldeepahlawat" target="_blank">
-  <img src="https://leetcard.jacoblin.cool/imkuldeepahlawat?theme=dark&font=Baloo%202&ext=heatmap" alt="LeetCode Stats" />
-</a>
-
-<br>
 
 </div>
