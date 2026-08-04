@@ -26,8 +26,10 @@ from _svg_common import (  # noqa: E402
 )
 
 # Row-major stagger: reveal reads top-to-bottom, left-to-right, like a
-# terminal printing an image row by row.
-DELAY_MS_PER_CELL = 2
+# terminal printing an image row by row. Kept short (~1.8s total for a
+# 64x35 grid) so it settles quickly rather than still being mid-reveal on
+# a quick glance.
+DELAY_MS_PER_CELL = 0.8
 
 
 def image_to_grid(img):

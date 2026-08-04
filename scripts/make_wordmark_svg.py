@@ -1,8 +1,16 @@
 #!/usr/bin/env python3
-"""Render the name as a terminal "binary decode" wordmark: each character
-flickers through a couple of random 0/1 digits before locking into place
-(left to right), then a blinking cursor settles at the end. Flat, single
-color, monospace -- no fake 3D, no isometric blocks.
+"""Render the name as a terminal "glitch decode" wordmark: each character
+flickers on/off a couple of times before settling solid, left to right,
+then a blinking cursor holds at the end. Flat, single color, monospace --
+no fake 3D, no isometric blocks.
+
+One element per character (not stacked candidate glyphs) -- an earlier
+version stacked multiple tspans (flashing digits + the real character) at
+identical coordinates, and a real headless-Chrome render showed that
+approach getting stuck on the wrong stacked element for the first
+character of a line, regardless of its delay. This version reuses the
+exact single-element opacity-stagger technique already proven reliable
+across 2000+ cells in make_ascii_svg.py.
 
 Usage:
     python scripts/make_wordmark_svg.py --mode decode
@@ -13,7 +21,6 @@ Usage:
 
 import argparse
 import os
-import random
 import sys
 
 sys.path.insert(0, os.path.dirname(__file__))
@@ -24,16 +31,9 @@ CHAR_ADV = 34  # monospace bold advance width at FONT_SIZE
 LINE_H = 68
 PAD = 18
 
-FLASH_WINDOW_MS = 55  # how long each binary digit flashes before the next
-FLASHES_PER_CHAR = 2  # how many random digits flicker before the real one
-STAGGER_MS = 70  # delay added per character position (left -> right)
-INITIAL_DELAY_MS = 30  # first character must not start at exactly 0ms --
-# an animation-delay of 0 on the very first paint leaves some renderers
-# (confirmed via a real headless-Chrome render, not just a static check)
-# stuck showing the last flash digit instead of resolving to the final
-# character, while every other (nonzero-delay) character resolves fine.
-
-BINARY_DIGITS = "01"
+STAGGER_MS = 45  # delay added per character position (left -> right)
+INITIAL_DELAY_MS = 60  # small head start before the first character flickers
+FLICKER_DUR_MS = 260  # each character's own on/off/on/off/settle duration
 
 
 def build_lines(text):
@@ -44,15 +44,7 @@ def build_lines(text):
     return text.split()
 
 
-def char_layer(x, y, delay, char, css_class):
-    return (
-        f'<tspan class="{css_class}" x="{x}" y="{y}" '
-        f'style="animation-delay:{delay}ms">{xml_escape(char)}</tspan>'
-    )
-
-
 def build_svg(lines, color):
-    rng = random.Random(42)  # deterministic output across regenerations
     max_len = max(len(line) for line in lines)
     canvas_w = PAD * 2 + max_len * CHAR_ADV
     canvas_h = PAD * 2 + len(lines) * LINE_H
@@ -68,14 +60,12 @@ def build_svg(lines, color):
         line_col = 0
         for ch in line:
             x = PAD + line_col * CHAR_ADV
-            base_delay = INITIAL_DELAY_MS + col * STAGGER_MS
-            for flash_i in range(FLASHES_PER_CHAR):
-                digit = rng.choice(BINARY_DIGITS)
-                delay = base_delay + flash_i * FLASH_WINDOW_MS
-                layers.append(char_layer(x, y, delay, digit, "flash"))
-            final_delay = base_delay + FLASHES_PER_CHAR * FLASH_WINDOW_MS
-            layers.append(char_layer(x, y, final_delay, ch, "final"))
-            last_char_end_delay = max(last_char_end_delay, final_delay)
+            delay = INITIAL_DELAY_MS + col * STAGGER_MS
+            layers.append(
+                f'<tspan class="ch" x="{x}" y="{y}" '
+                f'style="animation-delay:{delay}ms">{xml_escape(ch)}</tspan>'
+            )
+            last_char_end_delay = max(last_char_end_delay, delay + FLICKER_DUR_MS)
             line_col += 1
             col += 1
         if row == len(lines) - 1:
@@ -86,10 +76,16 @@ def build_svg(lines, color):
 
     css = f"""
     text {{ font-family: {MONOSPACE_STACK}; font-size: {FONT_SIZE}px; font-weight: 700; fill: {color}; }}
-    .flash {{ opacity: 0; animation: flash {FLASH_WINDOW_MS}ms steps(1, end) forwards; fill-opacity: 0.55; }}
-    @keyframes flash {{ 0% {{ opacity: 0; }} 15% {{ opacity: 1; }} 85% {{ opacity: 1; }} 100% {{ opacity: 0; }} }}
-    .final {{ opacity: 0; animation: lock 10ms steps(1, end) forwards; }}
-    @keyframes lock {{ to {{ opacity: 1; }} }}
+    .ch {{ opacity: 0; animation: flicker {FLICKER_DUR_MS}ms steps(1, end) forwards; }}
+    @keyframes flicker {{
+      0%   {{ opacity: 0; }}
+      12%  {{ opacity: 1; }}
+      24%  {{ opacity: 0; }}
+      36%  {{ opacity: 1; }}
+      48%  {{ opacity: 0.3; }}
+      60%  {{ opacity: 1; }}
+      100% {{ opacity: 1; }}
+    }}
     .cursor {{
       opacity: 0;
       animation: appear 10ms steps(1, end) {cursor_delay}ms forwards,
@@ -121,9 +117,8 @@ def main():
     args = parser.parse_args()
 
     lines = build_lines(args.text)
-    global FLASHES_PER_CHAR, STAGGER_MS
+    global STAGGER_MS
     if args.mode == "static":
-        FLASHES_PER_CHAR = 0
         STAGGER_MS = 0
 
     svg = build_svg(lines, args.color)
