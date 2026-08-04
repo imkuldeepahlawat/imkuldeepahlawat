@@ -1,5 +1,6 @@
 dist/
 assets/.cache/
+data/
 __pycache__/
 *.pyc
 .venv/

@@ -8,6 +8,8 @@ on:
       - "scripts/**"
       - "requirements.txt"
       - ".github/workflows/hero.yml"
+  schedule:
+    - cron: "0 3 * * *" # daily refresh for the contribution graph
   workflow_dispatch:
 
 concurrency:
@@ -50,6 +52,12 @@ jobs:
         run: |
           cd src
           python scripts/make_wordmark_svg.py --mode rock --out ../dist/wordmark.svg
+
+      - name: generate contrib-heatmap.svg
+        run: |
+          cd src
+          python scripts/fetch_contributions.py --out data/contributions.json
+          python scripts/make_contrib_graph.py --in data/contributions.json --out ../dist/contrib-heatmap.svg
 
       - name: push dist/ to the output branch
         uses: crazy-max/ghaction-github-pages@v3.1.0

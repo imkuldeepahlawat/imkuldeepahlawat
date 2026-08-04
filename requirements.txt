@@ -1,2 +1,4 @@
 Pillow>=11.0
 pyfiglet>=1.0.4
+requests>=2.31
+beautifulsoup4>=4.12

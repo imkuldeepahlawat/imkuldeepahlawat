@@ -98,11 +98,13 @@
 
 <h3><code>kuldeep@github ~ $ ./stats.sh</code></h3>
 
+<!-- github-readme-stats.vercel.app — re-enable when it recovers (currently returns 503 on both cards).
 <br/>
 <a href="https://github.com/imkuldeepahlawat/github-readme-stats"><img alt="Kuldeep Ahlawat Github Stats" src="https://github-readme-stats.vercel.app/api?username=imkuldeepahlawat&show_icons=true&count_private=true&theme=react&hide_border=true&bg_color=0D1117" /></a>
 <a href="https://github.com/imkuldeepahlawat/github-readme-stats"><img alt="Kuldeep Ahlawat Top Languages" src="https://github-readme-stats.vercel.app/api/top-langs/?username=imkuldeepahlawat&langs_count=8&count_private=true&layout=compact&theme=react&hide_border=true&bg_color=0D1117" /></a>
 <br/>
 <sub><b>Note:</b> Top languages is only a metric of the languages my public code consists of and doesn't reflect experience or skill level.</sub>
+-->
 
 <br>
 
@@ -113,11 +115,14 @@
 
 <h3><code>kuldeep@github ~ $ ./contributions.sh</code></h3>
 
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=imkuldeepahlawat&theme=react-dark&hide_border=true&bg_color=0D1117" alt="Contribution Graph" />
+<!-- self-hosted, real data — scripts/fetch_contributions.py + make_contrib_graph.py,
+     regenerated daily by .github/workflows/hero.yml, published to the `output` branch. -->
+<img src="https://raw.githubusercontent.com/imkuldeepahlawat/imkuldeepahlawat/output/contrib-heatmap.svg" alt="Contribution Graph" />
 
 <br>
 <br>
 
+<!-- 🔎 More GitHub Insights — re-enable when github-profile-summary-cards.vercel.app recovers (currently returns 500 on every card).
 <h3><code>kuldeep@github ~ $ ./insights.sh</code></h3>
 
 <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=imkuldeepahlawat&theme=github_dark" alt="Profile Details" />
@@ -131,6 +136,7 @@
 
 <img width="49%" src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=imkuldeepahlawat&theme=github_dark" alt="Stats" />
 <img width="49%" src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=imkuldeepahlawat&theme=github_dark&utcOffset=5.5" alt="Productive Time" />
+-->
 
 <!-- 🏆 GitHub Trophies — re-enable when the public service is back up (currently returns 402 DEPLOYMENT_DISABLED).
 <h3><code>kuldeep@github ~ $ ./trophies.sh</code></h3>
