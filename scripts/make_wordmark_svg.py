@@ -27,6 +27,11 @@ PAD = 18
 FLASH_WINDOW_MS = 55  # how long each binary digit flashes before the next
 FLASHES_PER_CHAR = 2  # how many random digits flicker before the real one
 STAGGER_MS = 70  # delay added per character position (left -> right)
+INITIAL_DELAY_MS = 30  # first character must not start at exactly 0ms --
+# an animation-delay of 0 on the very first paint leaves some renderers
+# (confirmed via a real headless-Chrome render, not just a static check)
+# stuck showing the last flash digit instead of resolving to the final
+# character, while every other (nonzero-delay) character resolves fine.
 
 BINARY_DIGITS = "01"
 
@@ -63,7 +68,7 @@ def build_svg(lines, color):
         line_col = 0
         for ch in line:
             x = PAD + line_col * CHAR_ADV
-            base_delay = col * STAGGER_MS
+            base_delay = INITIAL_DELAY_MS + col * STAGGER_MS
             for flash_i in range(FLASHES_PER_CHAR):
                 digit = rng.choice(BINARY_DIGITS)
                 delay = base_delay + flash_i * FLASH_WINDOW_MS
