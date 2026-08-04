@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Render data/contributions.json (see fetch_contributions.py) as a
-GitHub-style contribution heatmap: the classic 53-week x 7-day grid, boxes
-revealed once via a diagonal cascade, monochrome-blue to match the rest of
-the hero pipeline (portrait/wordmark use the same #58a6ff accent).
+"""Render data/contributions.json (see fetch_contributions.py) as a terminal
+"commit sparkline": one bar per week, growing up on reveal, framed like a
+shell command and its output. Deliberately not a clone of GitHub's own
+day-by-day calendar grid -- a single compact row instead.
 
 Usage:
     python scripts/make_contrib_graph.py [--in data/contributions.json]
@@ -10,7 +10,6 @@ Usage:
 """
 
 import argparse
-import datetime
 import json
 import os
 import sys
@@ -18,133 +17,82 @@ import sys
 sys.path.insert(0, os.path.dirname(__file__))
 from _svg_common import FACE_COLOR, MONOSPACE_STACK  # noqa: E402
 
-# Dark -> bright single-hue ramp (blue, not GitHub's green) for 5 activity levels.
-PALETTE = ["#0d1117", "#122b4a", "#1c4d80", "#2f7fd6", FACE_COLOR]
-
-CELL = 11
-GAP = 3
-STEP = CELL + GAP
+BAR_W = 6
+BAR_GAP = 3
+BAR_STEP = BAR_W + BAR_GAP
+MAX_BAR_H = 60
 PAD = 16
-LEFT_LABEL_W = 26
-TOP_LABEL_H = 16
+HEADER_H = 28
+FOOTER_H = 34
 
+DIM = "#3d5a80"  # empty/zero week
 MUTED = "#7d8590"
 TEXT = "#c9d1d9"
 
-COL_DELAY = 0.015  # per-column stagger (left -> right)
-ROW_DELAY = 0.04  # per-row stagger (top -> bottom), diagonal cascade
-CELL_DUR = 0.4
+GROW_DUR = 0.35
+STAGGER = 0.012
 
 
-def level_for(count):
-    if count == 0:
-        return 0
-    if count <= 3:
-        return 1
-    if count <= 8:
-        return 2
-    if count <= 15:
-        return 3
-    return 4
-
-
-def build_grid(days):
-    first = datetime.date.fromisoformat(days[0]["date"])
-    lead_pad = (first.weekday() + 1) % 7  # week starts Sunday
-    grid, col = [], [None] * lead_pad
+def weekly_totals(days):
+    """Bucket daily counts into ISO-week totals, oldest first."""
+    weeks = []
+    current_week = []
     for d in days:
-        date = datetime.date.fromisoformat(d["date"])
-        weekday = (date.weekday() + 1) % 7
-        while len(col) < weekday:
-            col.append(None)
-        col.append((d["date"], d["count"], level_for(d["count"])))
-        if len(col) == 7:
-            grid.append(col)
-            col = []
-    if col:
-        col += [None] * (7 - len(col))
-        grid.append(col)
-    return grid
+        current_week.append(d["count"])
+        if len(current_week) == 7:
+            weeks.append(sum(current_week))
+            current_week = []
+    if current_week:
+        weeks.append(sum(current_week))
+    return weeks
 
 
 def render(data):
-    days = data["days"]
-    grid = build_grid(days)
-    art_w = len(grid) * STEP
-    art_h = 7 * STEP
+    weeks = weekly_totals(data["days"])
+    peak = max(weeks) if weeks else 1
+    peak = max(peak, 1)
 
-    month_labels, seen = [], set()
-    for ci, column in enumerate(grid):
-        for cell in column:
-            if cell is None:
-                continue
-            date = datetime.date.fromisoformat(cell[0])
-            key = (date.year, date.month)
-            if key not in seen and date.day <= 7:
-                seen.add(key)
-                month_labels.append((ci, date.strftime("%b")))
-            break
-
-    canvas_w = PAD + LEFT_LABEL_W + art_w + PAD
-    footer_h = 34
-    canvas_h = TOP_LABEL_H + art_h + footer_h + PAD
+    art_w = len(weeks) * BAR_STEP - BAR_GAP
+    canvas_w = PAD * 2 + art_w
+    canvas_h = HEADER_H + MAX_BAR_H + FOOTER_H + PAD
 
     css = f"""
-    @keyframes reveal {{ to {{ opacity: 1; }} }}
-    .cell {{ opacity: 0; animation: reveal {CELL_DUR:.2f}s ease-out forwards; }}
+    text {{ font-family: {MONOSPACE_STACK}; }}
+    .bar {{ transform-box: fill-box; transform-origin: bottom; transform: scaleY(0); animation: grow {GROW_DUR}s ease-out forwards; }}
+    @keyframes grow {{ to {{ transform: scaleY(1); }} }}
     """.strip()
-
-    grid_top = TOP_LABEL_H
-    grid_left = PAD + LEFT_LABEL_W
 
     parts = [
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {canvas_w} {canvas_h}" '
-        f'width="{canvas_w}" height="{canvas_h}" font-family="{MONOSPACE_STACK}">',
+        f'width="{canvas_w}" height="{canvas_h}">',
         f"<style>{css}</style>",
-        f'<rect width="{canvas_w}" height="{canvas_h}" rx="8" fill="#0d1117"/>',
+        f'<text x="{PAD}" y="{PAD + 6}" font-size="12" fill="{MUTED}">'
+        f'<tspan fill="{FACE_COLOR}">$</tspan> git log --since=1.year --format=%cd | uniq -c -w10</text>',
     ]
 
-    for ci, label in month_labels:
-        x = grid_left + ci * STEP
-        parts.append(f'<text x="{x}" y="{TOP_LABEL_H - 4}" fill="{MUTED}" font-size="9">{label}</text>')
+    baseline = HEADER_H + MAX_BAR_H
+    for i, total in enumerate(weeks):
+        x = PAD + i * BAR_STEP
+        h = 2 if total == 0 else max(3, round((total / peak) * MAX_BAR_H))
+        y = baseline - h
+        color = DIM if total == 0 else FACE_COLOR
+        delay = i * STAGGER
+        plural = "" if total == 1 else "s"
+        parts.append(
+            f'<rect class="bar" x="{x}" y="{y}" width="{BAR_W}" height="{h}" rx="1" '
+            f'fill="{color}" style="animation-delay:{delay:.3f}s">'
+            f"<title>week of {data['days'][min(i * 7, len(data['days']) - 1)]['date']}: "
+            f"{total} commit{plural}</title></rect>"
+        )
 
-    for wi, wname in [(1, "M"), (3, "W"), (5, "F")]:
-        y = grid_top + wi * STEP + CELL * 0.78
-        parts.append(f'<text x="{PAD}" y="{y:.1f}" fill="{MUTED}" font-size="8">{wname}</text>')
-
-    for ci, column in enumerate(grid):
-        gx = grid_left + ci * STEP
-        for ri, cell in enumerate(column):
-            if cell is None:
-                continue
-            date_s, count, lvl = cell
-            gy = grid_top + ri * STEP
-            delay = ci * COL_DELAY + ri * ROW_DELAY
-            plural = "" if count == 1 else "s"
-            parts.append(
-                f'<rect class="cell" x="{gx}" y="{gy}" width="{CELL}" height="{CELL}" rx="2" '
-                f'fill="{PALETTE[lvl]}" style="animation-delay:{delay:.3f}s">'
-                f"<title>{date_s}: {count} contribution{plural}</title></rect>"
-            )
-
-    leg_y = grid_top + art_h + 8
-    leg_x = canvas_w - PAD - (len(PALETTE) * CELL + 60)
-    parts.append(f'<text x="{leg_x}" y="{leg_y + CELL * 0.8:.1f}" fill="{MUTED}" font-size="9" text-anchor="end">Less</text>')
-    lx = leg_x + 6
-    for color in PALETTE:
-        parts.append(f'<rect x="{lx}" y="{leg_y}" width="{CELL - 1}" height="{CELL - 1}" rx="2" fill="{color}"/>')
-        lx += CELL
-    parts.append(f'<text x="{lx + 4}" y="{leg_y + CELL * 0.8:.1f}" fill="{MUTED}" font-size="9">More</text>')
-
-    stats_y = leg_y + CELL + 20
     total = data["total_contributions"]
     streak = data["current_streak"]
+    footer_y = baseline + 26
     parts.append(
-        f'<text x="{PAD}" y="{stats_y}" font-size="12" fill="{TEXT}">'
-        f'<tspan font-weight="700" fill="{FACE_COLOR}">{total:,}</tspan>'
-        f'<tspan fill="{MUTED}"> contributions in the last year'
-        f'   &#183;   current streak </tspan>'
-        f'<tspan font-weight="700" fill="{FACE_COLOR}">{streak} day{"" if streak == 1 else "s"}</tspan></text>'
+        f'<text x="{PAD}" y="{footer_y}" font-size="12" fill="{MUTED}">'
+        f'<tspan fill="{FACE_COLOR}">$</tspan> echo "'
+        f'<tspan fill="{TEXT}" font-weight="700">{total:,}</tspan> contributions, '
+        f'<tspan fill="{TEXT}" font-weight="700">{streak}</tspan>-day streak"</text>'
     )
 
     parts.append("</svg>")

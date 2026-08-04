@@ -51,7 +51,7 @@ jobs:
       - name: generate wordmark.svg
         run: |
           cd src
-          python scripts/make_wordmark_svg.py --mode rock --out ../dist/wordmark.svg
+          python scripts/make_wordmark_svg.py --mode decode --out ../dist/wordmark.svg
 
       - name: generate contrib-heatmap.svg
         run: |
