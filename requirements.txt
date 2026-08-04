@@ -1,0 +1,2 @@
+Pillow>=11.0
+pyfiglet>=1.0.4
