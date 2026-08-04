@@ -26,10 +26,10 @@ from _svg_common import (  # noqa: E402
 )
 
 # Row-major stagger: reveal reads top-to-bottom, left-to-right, like a
-# terminal printing an image row by row. Kept short (~1.8s total for a
-# 64x35 grid) so it settles quickly rather than still being mid-reveal on
-# a quick glance.
-DELAY_MS_PER_CELL = 0.8
+# terminal printing an image row by row. Target a fixed total duration
+# rather than a fixed per-cell delay, so bumping grid resolution doesn't
+# make the reveal take longer to settle.
+TARGET_TOTAL_MS = 1800
 
 
 def image_to_grid(img):
@@ -46,7 +46,7 @@ def image_to_grid(img):
     return grid
 
 
-def build_row_markup(row_chars, row_index, cols):
+def build_row_markup(row_chars, row_index, cols, delay_per_cell):
     """Build the mixed text/tspan content for one row.
 
     Space characters are emitted as plain adjacent NBSP text (no wrapper,
@@ -59,7 +59,7 @@ def build_row_markup(row_chars, row_index, cols):
         if ch == " ":
             parts.append(NBSP)
         else:
-            delay = round((row_index * cols + col_index) * DELAY_MS_PER_CELL)
+            delay = round((row_index * cols + col_index) * delay_per_cell)
             parts.append(
                 f'<tspan class="ch" style="animation-delay:{delay}ms">'
                 f"{xml_escape(ch)}</tspan>"
@@ -72,11 +72,12 @@ def build_svg(grid, color):
     cols = len(grid[0]) if rows else 0
     width = cols * CHAR_W
     height = rows * CHAR_H
+    delay_per_cell = TARGET_TOTAL_MS / max(1, rows * cols)
 
     text_rows = []
     for row_index, row_chars in enumerate(grid):
         y = row_index * CHAR_H + CHAR_H
-        markup = build_row_markup(row_chars, row_index, cols)
+        markup = build_row_markup(row_chars, row_index, cols, delay_per_cell)
         text_rows.append(f'<text x="0" y="{y}">{markup}</text>')
 
     svg = f"""<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve"

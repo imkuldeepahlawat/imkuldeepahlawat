@@ -67,7 +67,7 @@ def terminal_preview(img):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("photo", help="path to the source photo")
-    parser.add_argument("--cols", type=int, default=64, help="character grid width")
+    parser.add_argument("--cols", type=int, default=96, help="character grid width")
     parser.add_argument("--aspect", default="1:1", help="target crop aspect, e.g. 1:1")
     parser.add_argument("--crop", choices=["top", "center"], default="top",
                          help="crop bias when trimming height (default: top, biases "
