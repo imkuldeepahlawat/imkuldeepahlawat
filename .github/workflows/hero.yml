@@ -59,6 +59,12 @@ jobs:
           python scripts/fetch_contributions.py --out data/contributions.json
           python scripts/make_contrib_graph.py --in data/contributions.json --out ../dist/contrib-heatmap.svg
 
+      - name: drop nested .git from the checked-out dist/ before publishing
+        run: |
+          rm -rf dist/.git
+          echo "dist/ contents about to be published:"
+          ls -la dist/
+
       - name: push dist/ to the output branch
         uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
