@@ -16,7 +16,7 @@
 </tr>
 </table>
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1000&center=true&vCenter=true&width=600&lines=Kuldeep+Ahlawat;Full+Stack+Engineer+%40+Inkers.ai;Building+scalable%2C+event-driven+systems;Kubernetes+%7C+GitOps+%7C+AI+Agents" alt="Typing SVG" />
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1000&center=true&vCenter=true&width=600&lines=Full+Stack+Engineer;Building+scalable%2C+event-driven+systems;Kubernetes+%7C+GitOps+%7C+AI+Agents" alt="Typing SVG" />
 
 <p><b>Full Stack Engineer · AI Agent Builder · Mentor</b></p>
 
