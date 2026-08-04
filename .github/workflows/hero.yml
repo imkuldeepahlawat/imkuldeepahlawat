@@ -10,6 +10,10 @@ on:
       - ".github/workflows/hero.yml"
   workflow_dispatch:
 
+concurrency:
+  group: publish-output-branch
+  cancel-in-progress: false
+
 jobs:
   generate:
     permissions:
